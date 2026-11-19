@@ -1,0 +1,11 @@
+# Keep secrets, local results and clutter out of the image.
+.env
+**/.env
+data/
+siem_output/
+**/__pycache__/
+.pytest_cache/
+.git/
+.venv/
+*.sqlite
+*.tmp

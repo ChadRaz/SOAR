@@ -1,0 +1,21 @@
+# Easiest way to run it:
+#   docker compose build
+#   docker compose run --rm siem              # interactive menu
+#   docker compose run --rm siem demo         # sample analysis, no API key needed
+#   docker compose run --rm siem live-demo    # live simulated SIEM feed
+#   docker compose run --rm siem test         # run the test suite
+#
+# API key: put VT_API_KEY=your_key in a file named .env next to this file
+# (Compose reads it automatically), or paste it in the menu and choose to save
+# it (it's then stored in ./data/.env). Never commit either .env file.
+
+services:
+  siem:
+    build: .
+    image: siem-enricher:latest
+    stdin_open: true
+    tty: true
+    environment:
+      VT_API_KEY: ${VT_API_KEY:-}
+    volumes:
+      - ./data:/data

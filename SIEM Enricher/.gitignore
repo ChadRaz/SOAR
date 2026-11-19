@@ -1,0 +1,7 @@
+.env
+data/*
+!data/README.txt
+siem_output/
+__pycache__/
+.pytest_cache/
+.venv/
